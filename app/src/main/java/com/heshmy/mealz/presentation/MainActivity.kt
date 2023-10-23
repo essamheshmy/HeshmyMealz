@@ -1,4 +1,4 @@
-package com.heshmy.mealz
+package com.heshmy.mealz.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,10 +10,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.heshmy.mealz.presentation.scrins.mealz_list.MealsListViewModel
 import com.heshmy.mealz.ui.theme.HeshmyMealzTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    
     override fun onCreate(savedInstanceState: Bundle?) {
+        
         super.onCreate(savedInstanceState)
         setContent {
             HeshmyMealzTheme {
@@ -22,7 +28,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val viewModel: MealsListViewModel = viewModel()
                     Greeting("Android")
+                   // Text(text = viewModel.category.replayCache.toString())
                 }
             }
         }
