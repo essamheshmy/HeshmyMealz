@@ -1,4 +1,4 @@
-package com.heshmy.mealz.presentation.scrins.mealz_list
+package com.heshmy.mealz.presentation.scrins.bottom_screens.mealz_list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

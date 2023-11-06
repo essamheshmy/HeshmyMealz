@@ -7,3 +7,5 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class MealzApp:Application()
 
+
+
