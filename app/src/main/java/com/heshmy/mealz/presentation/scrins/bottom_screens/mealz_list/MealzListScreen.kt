@@ -30,7 +30,7 @@ fun mealzList(
 ){
     val viewModel: MealsListViewModel = viewModel()
     val context= LocalContext.current
-    val mealsdata: SharedFlow<MealzCategoryResponse?> = viewModel.category
+   // val mealsdata: SharedFlow<MealzCategoryResponse?> = viewModel.category
 
 Column (
     modifier = Modifier
