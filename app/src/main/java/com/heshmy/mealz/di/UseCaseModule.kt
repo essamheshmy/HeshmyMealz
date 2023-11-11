@@ -14,6 +14,6 @@ import javax.inject.Singleton
 object UseCaseModule {
     @Provides
     fun provideUseCase(mealsRepo: MealsRepo):GetMealz{
-        return GetMealz((mealsRepo))
+        return GetMealz(mealsRepo)
     }
 }
