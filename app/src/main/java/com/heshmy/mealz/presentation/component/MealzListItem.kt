@@ -26,19 +26,22 @@ import com.heshmy.domain.entity.MealzCategory
 @Composable
 
 fun mealzItem(
-    data: MealzCategory, navController : NavController
+    data: MealzCategory,
+    navController : NavController
 ){
 Card (
-    modifier = Modifier.clickable {
-    navController.navigate("mealz_details/${data}")
-    }.padding(6.dp).fillMaxSize()
-){
-    Row() {
-        //Image(painter = data.strCategory, contentDescription = )
-        Column (){
-
+    modifier = Modifier
+        .clickable {
+            navController.navigate("mealz_details/${data}")
         }
-    }
+        .padding(6.dp)
+        .fillMaxSize()
+){
+    Text(text = data.strCategory.toString())
+
+  //  Row() {
+        //Image(painter = data.strCategory, contentDescription = )
+       // Column (){} }
 }
 
 

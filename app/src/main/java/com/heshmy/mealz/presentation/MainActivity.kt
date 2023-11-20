@@ -20,11 +20,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.heshmy.data.remote.ApiService
 import com.heshmy.data.repo.MealsRepoImpl
 import com.heshmy.domain.usecase.GetMealz
 import com.heshmy.mealz.name
 import com.heshmy.mealz.presentation.scrins.bottom_screens.mealz_list.MealsListViewModel
+import com.heshmy.mealz.presentation.scrins.bottom_screens.mealz_list.MealzList
 import com.heshmy.mealz.ui.theme.HeshmyMealzTheme
 import com.heshmy.mealz.ui.theme.Purple40
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +56,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    BottomNavigate()
+                   // BottomNavigate()
+                    MealzList(navController =rememberNavController() )
+
                 }
             }
         }
@@ -63,19 +69,12 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
- fun BottomNavigate() {
+fun navigatePage(){
+    val navHostController= rememberNavController()
+    NavHost(navController = navHostController, startDestination = "MealzList"  ){
+        composable(" MealzList"){ MealzList(navController = navHostController)}
+    }
 
-
-   val viewModel: MealsListViewModel = viewModel()
-    val mealzName=viewModel.category.toString()
-
-Column(
-    modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Gray)
-){
-Text(text = mealzName)
-}
 }
 
 
